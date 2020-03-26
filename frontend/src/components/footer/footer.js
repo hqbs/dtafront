@@ -23,7 +23,7 @@ function Footer () {
           </li>
           <li className='footer-navigation-item'>
             <a className='footer-link' href='/'>
-              Classroom Enviornments
+              Classroom Environments
             </a>
           </li>
         </ul>

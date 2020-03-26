@@ -1,9 +1,13 @@
 import React from 'react'
-
+import Image1 from '../../../images/picture3.svg'
+import Image2 from '../../../images/picture2.svg'
 function landing () {
   return (
     <div>
       <div className='container'>
+        <div className='create-container-image'>
+          <img src={Image1} width='100%' />
+        </div>
         <div className='create-container'>
           <h2>Create a Classroom</h2>
           <p>
@@ -28,6 +32,11 @@ function landing () {
             <button href='#about' style={{ padding: '10px 30px' }}>
               Join Classroom
             </button>
+          </center>
+        </div>
+        <div className='create-container-image'>
+          <center>
+            <img src={Image2} height='300px' />
           </center>
         </div>
       </div>
