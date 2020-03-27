@@ -6,8 +6,6 @@ function Login() {
     <div style={{ width: "100%", height: "100%" }}>
       <div className="login-container">
         <h2>Login</h2>
-        <h5>Welcome to our Hackathon Project.</h5>
-
         <label for="fname">Email</label>
         <input type="text" id="femail" name="email" placeholder="Email" />
 

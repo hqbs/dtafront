@@ -28,9 +28,9 @@ function landing() {
         <div className="create-container">
           <h2>Join a Classroom</h2>
           <p>
-            If you are a student or teach assistant, than this is the spot for
-            you! This will allow you to enter a classroom code in order to enter
-            a teachers enviornment. It's quick and easy!
+            If you are a student or teaching assistant, than this is the spot
+            for you! This will allow you to enter a classroom code in order to
+            enter a teachers setup enviornment. It's quick and easy!
           </p>
           <center>
             <button href="#about" style={{ padding: "10px 30px" }}>
