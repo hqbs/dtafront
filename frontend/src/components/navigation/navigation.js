@@ -1,47 +1,52 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Navigation () {
+function Navigation() {
   return (
     <div>
-      <ul className='navigation-ul'>
-        <li className='navigation-li'>
-          <a className='logo' href='#home'>
+      <ul className="navigation-ul">
+        <li className="navigation-li">
+          <Link className="logo" to="/">
             Hack
-            <span style={{ color: '#5b5dee' }}>Quarantine</span>
-          </a>
+            <span style={{ color: "#5b5dee" }}>Quarantine</span>
+          </Link>
         </li>
         <li
-          className='navigation-li'
-          style={{ float: 'right', marginRight: '10px' }}
+          className="navigation-li"
+          style={{ float: "right", marginRight: "10px" }}
         >
-          <button href='#about'>Signup</button>
+          <Link className="navigation-li" to="/signup">
+            <button href="#about">Signup</button>
+          </Link>
         </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <button href='#about'>Login</button>
+        <li className="navigation-li" style={{ float: "right" }}>
+          <Link to="/login">
+            <button href="/">Login</button>
+          </Link>
         </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <a className='nav-button' href='#about'>
+        <li className="navigation-li" style={{ float: "right" }}>
+          <Link className="nav-button" to="/join">
             Join a Classroom
-          </a>
+          </Link>
         </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <a className='nav-button' href='#about'>
+        <li className="navigation-li" style={{ float: "right" }}>
+          <Link className="nav-button" to="/create">
             Create a Classroom
-          </a>
+          </Link>
         </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <a className='nav-button' href='#about'>
+        <li className="navigation-li" style={{ float: "right" }}>
+          <Link className="nav-button" to="/documentation">
             Documentation
-          </a>
+          </Link>
         </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <a className='nav-button' href='#about'>
+        <li className="navigation-li" style={{ float: "right" }}>
+          <Link className="nav-button" to="/about">
             About
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;
