@@ -7,7 +7,7 @@ function Navigation () {
       <ul className='navigation-ul'>
         <li className='navigation-li'>
           <Link className='logo' to='/'>
-            Educo<span style={{ color: '#5b5dee' }}>Space</span>
+            Hack<span style={{ color: '#5b5dee' }}>Quarantine</span>
           </Link>
         </li>
         <li
@@ -15,12 +15,12 @@ function Navigation () {
           style={{ float: 'right', marginRight: '10px' }}
         >
           <Link className='navigation-li' to='/signup'>
-            <button style={{ margin: '14px 4px' }}>Signup</button>
+            <button style={{ margin: '12px 4px' }}>Signup</button>
           </Link>
         </li>
         <li className='navigation-li' style={{ float: 'right' }}>
           <Link to='/login'>
-            <button style={{ margin: '14px 4px' }}>Login</button>
+            <button style={{ margin: '12px 4px' }}>Login</button>
           </Link>
         </li>
         <li className='navigation-li' style={{ float: 'right' }}>
