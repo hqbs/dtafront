@@ -1,35 +1,25 @@
 import React from 'react'
-import './login.css'
 import { Link } from 'react-router-dom'
 
 function Login () {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <div className='login-container'>
-        <h2>Login</h2>
+        <h2>Forgot Password</h2>
+        <p>
+          If you forgot your password, enter your email and we will send an
+          email to reset it!
+        </p>
         <label for='fname'>Email</label>
         <input type='text' id='femail' name='email' placeholder='Email' />
 
-        <label for='lname'>Password</label>
-        <input
-          type='password'
-          id='lpassword'
-          name='password'
-          placeholder='Password'
-        />
-
         <center>
-          <button style={{ width: '48%', marginRight: '4%' }}>Login</button>
-          <Link to='/signup'>
-            <button style={{ width: '48%' }}>Need an Account?</button>
+          <button style={{ width: '48%', marginRight: '4%' }}>
+            Reset Password
+          </button>
+          <Link to='/login'>
+            <button style={{ width: '48%' }}>Back</button>
           </Link>
-          <p>
-            Forgot your password?{' '}
-            <Link className='hyperlinks' to='/forgot'>
-              Click here
-            </Link>{' '}
-            to reset it!
-          </p>
         </center>
       </div>
       <div class='waveWrapper waveAnimation'>

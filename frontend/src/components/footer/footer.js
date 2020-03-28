@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer () {
   return (
@@ -7,24 +8,24 @@ function Footer () {
         <h4>About</h4>
         <ul className='footer-navigation-container'>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/project'>
               The Project
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/team'>
               The Team
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/gettingstarted'>
               Getting Started
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/environments'>
               Classroom Environments
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -32,19 +33,19 @@ function Footer () {
         <h4>Legal</h4>
         <ul className='footer-navigation-container'>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/tos'>
               Terms of Service
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/privacy'>
               Privacy
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/policies'>
               Policies
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -52,24 +53,24 @@ function Footer () {
         <h4>Helpful Links</h4>
         <ul className='footer-navigation-container'>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/create'>
               Create a Classroom
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/join'>
               Join a Classroom
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/status'>
               Status
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/usecases'>
               Use Cases
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -77,24 +78,24 @@ function Footer () {
         <h4>Account</h4>
         <ul className='footer-navigation-container'>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
-              Signup
-            </a>
-          </li>
-          <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/login'>
               Login
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/signup'>
+              Signup
+            </Link>
+          </li>
+          <li className='footer-navigation-item'>
+            <Link className='footer-link' to='/forgot'>
               Forgot Password
-            </a>
+            </Link>
           </li>
           <li className='footer-navigation-item'>
-            <a className='footer-link' href='/'>
+            <Link className='footer-link' to='/delete'>
               Delete Account
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

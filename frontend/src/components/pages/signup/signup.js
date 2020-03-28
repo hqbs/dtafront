@@ -1,34 +1,55 @@
 import React from 'react'
-import './login.css'
+import './signup.css'
 import { Link } from 'react-router-dom'
 
 function Login () {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <div className='login-container'>
-        <h2>Login</h2>
-        <label for='fname'>Email</label>
-        <input type='text' id='femail' name='email' placeholder='Email' />
+        <h2>Signup</h2>
+        <label for='fname'>First Name</label>
+        <input type='text' id='fname' name='fname' placeholder='First Name' />
+
+        <label for='fname'>Last Name</label>
+        <input type='text' id='lname' name='lname' placeholder='Last Name' />
+
+        <label for='fname'>School Email</label>
+        <input type='text' id='email' name='email' placeholder='Email' />
+
+        <label for='fname'>Phone Number</label>
+        <input
+          type='text'
+          id='phonenumber'
+          name='phonenumber'
+          placeholder='Phone Number'
+        />
 
         <label for='lname'>Password</label>
         <input
           type='password'
-          id='lpassword'
+          id='password'
           name='password'
           placeholder='Password'
         />
 
+        <label for='lname'>Confirm Password</label>
+        <input
+          type='password'
+          id='cpassword'
+          name='cpassword'
+          placeholder='Password'
+        />
+
         <center>
-          <button style={{ width: '48%', marginRight: '4%' }}>Login</button>
-          <Link to='/signup'>
-            <button style={{ width: '48%' }}>Need an Account?</button>
+          <Link to='/'>
+            <button style={{ width: '100%' }}>Create Account</button>
           </Link>
           <p>
-            Forgot your password?{' '}
-            <Link className='hyperlinks' to='/forgot'>
+            Already have an account?{' '}
+            <Link className='hyperlinks' to='/login'>
               Click here
             </Link>{' '}
-            to reset it!
+            to login!
           </p>
         </center>
       </div>
@@ -61,7 +82,7 @@ function Login () {
           ></div>
         </div>
       </div>
-      <div className='bg' />
+      <div className='bg' style={{ height: '1200px' }} />
     </div>
   )
 }
