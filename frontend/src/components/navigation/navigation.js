@@ -7,7 +7,7 @@ function Navigation () {
       <ul className='navigation-ul'>
         <li className='navigation-li'>
           <Link className='logo' to='/'>
-            Hack<span style={{ color: '#5b5dee' }}>Quarantine</span>
+            Academe<span style={{ color: '#5b5dee' }}>Space</span>
           </Link>
         </li>
         <li

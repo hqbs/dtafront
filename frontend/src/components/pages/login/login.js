@@ -3,6 +3,11 @@ import './login.css'
 import { Link } from 'react-router-dom'
 
 function Login () {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <div className='login-container'>
@@ -19,7 +24,9 @@ function Login () {
         />
 
         <center>
-          <button style={{ width: '48%', marginRight: '4%' }}>Login</button>
+          <Link to='/servers'>
+            <button style={{ width: '48%', marginRight: '4%' }}>Login</button>
+          </Link>
           <Link to='/signup'>
             <button style={{ width: '48%' }}>Need an Account?</button>
           </Link>

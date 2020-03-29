@@ -3,6 +3,11 @@ import './signup.css'
 import { Link } from 'react-router-dom'
 
 function Login () {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <div className='login-container'>

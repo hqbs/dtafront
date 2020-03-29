@@ -3,6 +3,11 @@ import Image1 from '../../../images/picture3.svg'
 import Image2 from '../../../images/picture2.svg'
 
 function landing () {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+
   return (
     <div>
       <div className='container'>
