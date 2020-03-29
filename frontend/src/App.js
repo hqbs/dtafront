@@ -7,6 +7,7 @@ import Login from './components/pages/login/login'
 import Signup from './components/pages/signup/signup'
 import Forgot from './components/pages/forgot/forgot'
 import Servers from './components/pages/servers/servers'
+import Status from './components/pages/status/status'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App () {
@@ -25,6 +26,9 @@ function App () {
         </Route>
         <Route path='/servers'>
           <Servers />
+        </Route>
+        <Route path='/status'>
+          <Status />
         </Route>
         <Route path='/'>
           <Landing />

@@ -216,3 +216,15 @@ select {
   margin-bottom: 20px;
   transition: 0.3s;
 }
+
+.status-container {
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 600px;
+  padding: 30px;
+  border-radius: 6px;
+  transition: 0.3s;
+  margin: auto;
+  text-align: center;
+}
