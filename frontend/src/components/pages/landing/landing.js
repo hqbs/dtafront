@@ -1,6 +1,7 @@
 import React from 'react'
 import Image1 from '../../../images/picture3.svg'
 import Image2 from '../../../images/picture2.svg'
+import { Link } from 'react-router-dom'
 
 function landing () {
   window.scrollTo({
@@ -27,9 +28,9 @@ function landing () {
             enviornment.
           </p>
           <center>
-            <button href='#about' style={{ padding: '10px 30px' }}>
-              Create Classroom
-            </button>
+            <Link to='/create'>
+              <button style={{ padding: '10px 30px' }}>Create Classroom</button>
+            </Link>
           </center>
         </div>
       </div>
@@ -42,9 +43,11 @@ function landing () {
             enter a teachers setup enviornment. It's quick and easy!
           </p>
           <center>
-            <button href='#about' style={{ padding: '10px 30px' }}>
-              Join Classroom
-            </button>
+            <Link to='/join'>
+              <button href='#about' style={{ padding: '10px 30px' }}>
+                Join Classroom
+              </button>
+            </Link>
           </center>
         </div>
 

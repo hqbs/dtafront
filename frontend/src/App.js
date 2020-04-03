@@ -8,6 +8,10 @@ import Signup from './components/pages/signup/signup'
 import Forgot from './components/pages/forgot/forgot'
 import Servers from './components/pages/servers/servers'
 import Status from './components/pages/status/status'
+import Create from './components/pages/create/create'
+import Join from './components/pages/join/join'
+import TA from './components/pages/feature-ta/feature-ta'
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App () {
@@ -15,6 +19,12 @@ function App () {
     <Router>
       <Navigation />
       <Switch>
+        <Route path='/create'>
+          <Create />
+        </Route>
+        <Route path='/join'>
+          <Join />
+        </Route>
         <Route path='/login'>
           <Login />
         </Route>
@@ -29,6 +39,9 @@ function App () {
         </Route>
         <Route path='/status'>
           <Status />
+        </Route>
+        <Route path='/ta'>
+          <TA />
         </Route>
         <Route path='/'>
           <Landing />
