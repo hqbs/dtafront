@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function Status () {
@@ -7,47 +7,61 @@ function Status () {
     behavior: 'smooth'
   })
 
-  const [status, setStatus] = useState(null)
+  const [discordStatus, setDiscordStatus] = useState(null)
+  const [authStatus, setAuthStatus] = useState(null)
 
-  axios
-    .get(`http://localhost:8000/status`)
-    .then(res => {
-      console.log(res)
-      let status = res.data.status
-      if (status === 0) {
-        setStatus('Online')
-      } else if (status === 1) {
-        setStatus('Restarting')
-      } else if (status === 2) {
-        setStatus('Restarting')
-      } else if (status === 3) {
-        setStatus('Online')
-      } else if (status === 4) {
-        setStatus('Online')
-      } else if (status === 5) {
-        setStatus('Offline')
-      } else {
-        setStatus('Offline')
-      }
-    })
-    .catch(err => {
-      setStatus('Offline')
-    })
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/status`)
+      .then(res => {
+        console.log(res)
+        let discordStatus = res.data.status
+        if (discordStatus === 0) {
+          setDiscordStatus('Online')
+        } else if (discordStatus === 1) {
+          setDiscordStatus('Restarting')
+        } else if (discordStatus === 2) {
+          setDiscordStatus('Restarting')
+        } else if (discordStatus === 3) {
+          setDiscordStatus('Online')
+        } else if (discordStatus === 4) {
+          setDiscordStatus('Online')
+        } else if (discordStatus === 5) {
+          setDiscordStatus('Offline')
+        } else {
+          setDiscordStatus('Offline')
+        }
+      })
+      .catch(err => {
+        setDiscordStatus('Offline')
+      })
+
+    axios
+      .get('http://localhost:8001/status')
+      .then(res => {
+        setAuthStatus(res.data.status)
+      })
+      .catch(err => {
+        setAuthStatus('Offline')
+      })
+  })
 
   return (
     <div style={{ marginTop: '100px', marginBottom: '500px' }}>
       <div className='status-container'>
         <h1>
           Discord Bot:{' '}
-          <span style={{ color: status === 'Online' ? 'green' : 'red' }}>
-            {status}
+          <span style={{ color: discordStatus === 'Online' ? 'green' : 'red' }}>
+            {discordStatus}
           </span>
         </h1>
       </div>
       <div className='status-container'>
         <h1>
           Authentication API:{' '}
-          <span style={{ color: 'grey' }}>Not Implemented</span>
+          <span style={{ color: authStatus === 'Online' ? 'green' : 'red' }}>
+            {authStatus}
+          </span>
         </h1>
       </div>
       <div className='status-container'>

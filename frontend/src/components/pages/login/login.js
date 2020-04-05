@@ -21,19 +21,17 @@ function Login ({ auth }) {
       setemailError(true)
     } else {
       setemailError(false)
-      // Phone Number Check
       if (password === '' || password.length < 14 || password.length > 350) {
         setaccountError(true)
       } else {
         setaccountError(false)
-        success('no token yet')
+        success(email, password)
       }
     }
   }
 
-  function success (token) {
-    // Implement Setting Token
-    auth()
+  function success (email, password) {
+    auth(email, password)
   }
 
   return (
