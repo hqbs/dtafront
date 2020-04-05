@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import './App.css'
@@ -41,6 +41,7 @@ function deleteCookie (name) {
 }
 
 function App () {
+  const [snackMessage, setSnackMessage] = useState('')
   const history = useHistory()
 
   useEffect(() => {
@@ -69,10 +70,15 @@ function App () {
       .then(res => {
         isAuthenticated = true
         history.push('/')
+        showSnackbar('Login Successfull!')
       })
       .catch(err => {
-        console.log(err)
-        console.log('Wrong Details')
+        if (err.message === 'Network Error') {
+          showSnackbar('Server currently down. Could be an outage.')
+        } else if (err.message === 'Request failed with status code 401') {
+          showSnackbar('Something was wrong with your credentials...')
+        }
+        console.log(err.message)
       })
   }
 
@@ -80,6 +86,21 @@ function App () {
     deleteCookie('token')
     isAuthenticated = false
     history.push('/')
+    showSnackbar('Successfully signed out!')
+  }
+
+  function showSnackbar (message) {
+    // Get the snackbar DIV
+    var x = document.getElementById('snackbar')
+    setSnackMessage(message)
+
+    // Add the "show" class to DIV
+    x.className = 'show'
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+      x.className = x.className.replace('show', '')
+    }, 3000)
   }
 
   const PrivateRoute = ({ component: Component }) => (
@@ -109,9 +130,9 @@ function App () {
         <Route path='/status'>
           <Status />
         </Route>
-
         <Route path='/'>{isAuthenticated ? <Servers /> : <Landing />}</Route>
       </Switch>
+      <div id='snackbar'>{snackMessage}</div>
       <Footer />
     </div>
   )

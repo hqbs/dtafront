@@ -25,13 +25,9 @@ function Login ({ auth }) {
         setaccountError(true)
       } else {
         setaccountError(false)
-        success(email, password)
+        auth(email, password)
       }
     }
-  }
-
-  function success (email, password) {
-    auth(email, password)
   }
 
   return (
