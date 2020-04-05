@@ -38,10 +38,26 @@ function Status () {
     <div style={{ marginTop: '100px', marginBottom: '500px' }}>
       <div className='status-container'>
         <h1>
-          Discord Bot Status:{' '}
+          Discord Bot:{' '}
           <span style={{ color: status === 'Online' ? 'green' : 'red' }}>
             {status}
           </span>
+        </h1>
+      </div>
+      <div className='status-container'>
+        <h1>
+          Authentication API:{' '}
+          <span style={{ color: 'grey' }}>Not Implemented</span>
+        </h1>
+      </div>
+      <div className='status-container'>
+        <h1>
+          Database: <span style={{ color: 'grey' }}>Not Implemented</span>
+        </h1>
+      </div>
+      <div className='status-container'>
+        <h1>
+          Web API: <span style={{ color: 'grey' }}>Not Implemented</span>
         </h1>
       </div>
     </div>

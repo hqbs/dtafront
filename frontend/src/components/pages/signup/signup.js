@@ -10,7 +10,6 @@ function Login () {
   const [passwordError, setpasswordError] = useState(false)
   const [cpasswordError, setcpasswordError] = useState(false)
 
-  // Changing Route
   const history = useHistory()
 
   window.scrollTo({
@@ -96,7 +95,7 @@ function Login () {
     <div style={{ width: '100%', height: '100%' }}>
       <div className='login-container'>
         <h2>Signup</h2>
-        <label for='fname'>First Name</label>
+        <label htmlFor='fname'>First Name</label>
         <input type='text' id='fname' name='fname' placeholder='First Name' />
         {fnameError ? (
           <span style={{ color: 'red' }}>
@@ -108,7 +107,7 @@ function Login () {
           ''
         )}
 
-        <label for='fname'>Last Name</label>
+        <label htmlFor='fname'>Last Name</label>
         <input type='text' id='lname' name='lname' placeholder='Last Name' />
         {lnameError ? (
           <span style={{ color: 'red' }}>
@@ -120,7 +119,7 @@ function Login () {
           ''
         )}
 
-        <label for='fname'>School Email</label>
+        <label htmlFor='fname'>School Email</label>
         <input type='text' id='email' name='email' placeholder='Email' />
         {emailError ? (
           <span style={{ color: 'red' }}>
@@ -132,7 +131,7 @@ function Login () {
           ''
         )}
 
-        <label for='fname'>Phone Number</label>
+        <label htmlFor='fname'>Phone Number</label>
         <input
           type='text'
           id='phonenumber'
@@ -151,7 +150,7 @@ function Login () {
           ''
         )}
 
-        <label for='lname'>Password</label>
+        <label htmlFor='lname'>Password</label>
         <input
           type='password'
           id='password'
@@ -168,7 +167,7 @@ function Login () {
           ''
         )}
 
-        <label for='lname'>Confirm Password</label>
+        <label htmlFor='lname'>Confirm Password</label>
         <input
           type='password'
           id='cpassword'
@@ -198,28 +197,28 @@ function Login () {
           </p>
         </center>
       </div>
-      <div class='waveWrapper waveAnimation'>
-        <div class='waveWrapperInner bgTop'>
+      <div className='waveWrapper waveAnimation'>
+        <div className='waveWrapperInner bgTop'>
           <div
-            class='wave waveTop'
+            className='wave waveTop'
             style={{
               backgroundImage:
                 "url('http://front-end-noobs.com/jecko/img/wave-top.png')"
             }}
           ></div>
         </div>
-        <div class='waveWrapperInner bgMiddle'>
+        <div className='waveWrapperInner bgMiddle'>
           <div
-            class='wave waveMiddle'
+            className='wave waveMiddle'
             style={{
               backgroundImage:
                 "url('http://front-end-noobs.com/jecko/img/wave-mid.png')"
             }}
           ></div>
         </div>
-        <div class='waveWrapperInner bgBottom'>
+        <div className='waveWrapperInner bgBottom'>
           <div
-            class='wave waveBottom'
+            className='wave waveBottom'
             style={{
               backgroundImage:
                 "url('http://front-end-noobs.com/jecko/img/wave-bot.png')"

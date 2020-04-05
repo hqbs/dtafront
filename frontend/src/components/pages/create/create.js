@@ -13,7 +13,7 @@ function create () {
         Create a Classroom
       </h1>
       <div className='login-container' style={{ marginTop: 0, width: '600px' }}>
-        <label for='fname'>Classroom Name</label>
+        <label htmlFor='classname'>Classroom Name</label>
         <input
           type='text'
           id='classname'
@@ -21,23 +21,18 @@ function create () {
           placeholder='Database Systems...'
         />
 
-        <label for='fname'>Class Code</label>
+        <label htmlFor='classcode'>Class Code</label>
         <input
           type='text'
-          id='classname'
-          name='classname'
+          id='classcode'
+          name='classcode'
           placeholder='CS 260...'
         />
 
-        <label for='fname'>Section</label>
-        <input
-          type='text'
-          id='classname'
-          name='classname'
-          placeholder='001...'
-        />
+        <label htmlFor='section'>Section</label>
+        <input type='text' id='section' name='section' placeholder='001...' />
 
-        <label for='fname'>Access</label>
+        {/* <label htmlFor='access'>Access</label>
         <div className='create-classroom-container'>
           <div className='create-classroom'>
             <h3>Public</h3>
@@ -51,35 +46,32 @@ function create () {
               Students need a special key and/or email to access classroom.
             </h5>
           </div>
-        </div>
+        </div> */}
 
-        <label for='fname'>Enviornment</label>
+        {/* <label htmlFor='enviornment'>Enviornment</label>
         <div className='create-classroom-container'>
           <div
             className='create-classroom'
             style={{ height: '20px', padding: '10px', width: '115px' }}
           >
             <h4 style={{ margin: 0 }}>Discord</h4>
-            {/* <img src={DiscordLogo} width='80px' /> */}
           </div>
           <div
             className='create-classroom'
             style={{ height: '20px', padding: '10px', width: '115px' }}
           >
             <h4 style={{ margin: 0 }}>Slack</h4>
-            {/* <img src={DiscordLogo} width='80px' /> */}
           </div>
           <div
             className='create-classroom'
             style={{ height: '20px', padding: '10px', width: '115px' }}
           >
             <h4 style={{ margin: 0 }}>AcademeSpace</h4>
-            {/* <img src={DiscordLogo} width='80px' /> */}
           </div>
-        </div>
+        </div> */}
 
         <center>
-          <Link to='/servers'>
+          <Link to='/'>
             <button
               className='button-alt'
               style={{ width: '100%', height: '60px', marginTop: '10px' }}

@@ -12,43 +12,56 @@ import Create from './components/pages/create/create'
 import Join from './components/pages/join/join'
 import TA from './components/pages/feature-ta/feature-ta'
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
+// const cookie = require('cookie');
+
+let isAuthenticated = true
 
 function App () {
+  const history = useHistory()
+
+  function auth (cb) {
+    isAuthenticated = true
+    setTimeout(() => history.push('/'), 100) // fake async
+  }
+
+  function signout (cb) {
+    isAuthenticated = false
+    setTimeout(() => history.push('/'), 100) // fake async
+  }
+
+  const PrivateRoute = ({ component: Component }) => (
+    <Route>
+      {isAuthenticated === true ? <Component /> : () => history.push('/login')}
+    </Route>
+  )
+
   return (
-    <Router>
-      <Navigation />
+    <div>
+      <Navigation isAuthenticated={isAuthenticated} signout={signout} />
       <Switch>
-        <Route path='/create'>
-          <Create />
-        </Route>
-        <Route path='/join'>
-          <Join />
-        </Route>
+        <PrivateRoute path='/create' component={Create} />
+        <PrivateRoute path='/join' component={Join} />
+        <PrivateRoute path='/ta' component={TA} />
+
         <Route path='/login'>
-          <Login />
+          {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
         </Route>
         <Route path='/signup'>
-          <Signup />
+          {isAuthenticated ? () => history.push('/') : <Signup />}
         </Route>
         <Route path='/forgot'>
-          <Forgot />
+          {isAuthenticated ? () => history.push('/') : <Forgot />}
         </Route>
-        <Route path='/servers'>
-          <Servers />
-        </Route>
+
         <Route path='/status'>
           <Status />
         </Route>
-        <Route path='/ta'>
-          <TA />
-        </Route>
-        <Route path='/'>
-          <Landing />
-        </Route>
+
+        <Route path='/'>{isAuthenticated ? <Servers /> : <Landing />}</Route>
       </Switch>
       <Footer />
-    </Router>
+    </div>
   )
 }
 

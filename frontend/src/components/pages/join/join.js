@@ -13,7 +13,7 @@ function Join () {
         Join a Classroom
       </h1>
       <div className='login-container' style={{ marginTop: 0, width: '600px' }}>
-        <label for='fname'>Classroom Invite Code</label>
+        <label htmlFor='classname'>Classroom Invite Code</label>
         <input
           type='text'
           id='classname'
@@ -22,7 +22,7 @@ function Join () {
         />
 
         <center>
-          <Link to='/servers'>
+          <Link to='/'>
             <button
               className='button-alt'
               style={{ width: '100%', height: '60px', marginTop: '10px' }}
