@@ -107,7 +107,7 @@ function App () {
           setCookie('email', email, 1)
           isAuthenticated = true
           history.push('/')
-          showSnackbar('Successfully Login!')
+          showSnackbar('Successful Login!')
         } else {
           showSnackbar(errors)
         }
