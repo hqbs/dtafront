@@ -16,8 +16,10 @@ import TA from './components/pages/feature-ta/feature-ta'
 
 import { Switch, Route, useHistory } from 'react-router-dom'
 
+const IP = '35.226.72.159:4000'
+
 let isAuthenticated
-axios.defaults.withCredentials = true
+// axios.defaults.withCredentials = true
 
 // Get Cookie function found on W3schools.com since it works!
 function getCookie (cname) {
@@ -40,24 +42,40 @@ function deleteCookie (name) {
   document.cookie = name + '=; Max-Age=-99999999;'
 }
 
+function setCookie (cname, cvalue, exdays) {
+  var d = new Date()
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000) //
+  var expires = 'expires=' + d.toUTCString()
+  document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/'
+}
+
 function App () {
   const [snackMessage, setSnackMessage] = useState('')
   const history = useHistory()
 
   useEffect(() => {
     // Checking if we have a Token Cookie
-    if (getCookie('token') !== null && getCookie('token').trim() !== '') {
+    if (getCookie('token') !== null && getCookie('email') !== null) {
       // If we do, make a call
       axios
-        .post('http://localhost:8001/validate')
+        .get(
+          'http://' +
+            IP +
+            '/graphql?query={validateUserToken(email:"' +
+            getCookie('email') +
+            '",currenttoken:"' +
+            getCookie('token') +
+            '")}'
+        )
         .then(res => {
-          isAuthenticated = true
-          history.push('/')
+          console.log(res)
+          // isAuthenticated = true
+          // history.push('/')
         })
         .catch(err => {
-          isAuthenticated = true
+          // isAuthenticated = true
           console.log(err)
-          console.log('Bad Token')
+          // console.log('Bad Token')
         })
     } else {
       isAuthenticated = false
@@ -66,24 +84,45 @@ function App () {
 
   function auth (email, password) {
     axios
-      .post('http://localhost:8001/login', { email: email, password: password })
+      .get(
+        'http://' +
+          IP +
+          '/graphql?query={login(email:"' +
+          email +
+          '",password:"' +
+          password +
+          '",token:" "){success errors token}}'
+      )
       .then(res => {
-        isAuthenticated = true
-        history.push('/')
-        showSnackbar('Login Successfull!')
+        const data = res.data.data.login
+        const errors = data.errors
+        const success = data.success
+        const token = data.token
+
+        if (success) {
+          setCookie('token', token, 1)
+          setCookie('email', email, 1)
+          isAuthenticated = true
+          history.push('/')
+        } else {
+          showSnackbar(errors)
+        }
+
+        console.log(res)
+        // showSnackbar('Login Successfull!')
       })
       .catch(err => {
-        if (err.message === 'Network Error') {
-          showSnackbar('Server currently down. Could be an outage.')
-        } else if (err.message === 'Request failed with status code 401') {
-          showSnackbar('Something was wrong with your credentials...')
+        if (err.message === 'NetwError') {
+          showSnackbar('Server currenork tly down. Could be an outage.')
         }
+
         console.log(err.message)
       })
   }
 
   function signout () {
     deleteCookie('token')
+    deleteCookie('email')
     isAuthenticated = false
     history.push('/')
     showSnackbar('Successfully signed out!')
