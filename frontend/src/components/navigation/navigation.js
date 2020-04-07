@@ -41,32 +41,34 @@ function Navigation ({ isAuthenticated, signout }) {
           </div>
         )}
 
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <Link className='nav-button' to='/join'>
-            Join a Classroom
-          </Link>
-        </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <Link className='nav-button' to='/create'>
-            Create a Classroom
-          </Link>
-        </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          <Link className='nav-button' to='/documentation'>
-            Documentation
-          </Link>
-        </li>
-        <li className='navigation-li' style={{ float: 'right' }}>
-          {isAuthenticated ? (
-            <Link className='nav-button' to='/'>
-              Servers
+        <div className='mobile-nav'>
+          <li className='navigation-li' style={{ float: 'right' }}>
+            <Link className='nav-button' to='/join'>
+              Join a Classroom
             </Link>
-          ) : (
-            <Link className='nav-button' to='/about'>
-              About
+          </li>
+          <li className='navigation-li' style={{ float: 'right' }}>
+            <Link className='nav-button' to='/create'>
+              Create a Classroom
             </Link>
-          )}
-        </li>
+          </li>
+          <li className='navigation-li' style={{ float: 'right' }}>
+            <Link className='nav-button' to='/documentation'>
+              Documentation
+            </Link>
+          </li>
+          <li className='navigation-li' style={{ float: 'right' }}>
+            {isAuthenticated ? (
+              <Link className='nav-button' to='/'>
+                Servers
+              </Link>
+            ) : (
+              <Link className='nav-button' to='/about'>
+                About
+              </Link>
+            )}
+          </li>
+        </div>
       </ul>
     </div>
   )

@@ -55,7 +55,7 @@ function App () {
 
   useEffect(() => {
     // Checking if we have a Token Cookie
-    if (getCookie('token') !== null && getCookie('email') !== null) {
+    if (getCookie('token') !== '' && getCookie('email') !== '') {
       // If we do, make a call
       axios
         .get(
@@ -76,9 +76,7 @@ function App () {
           }
         })
         .catch(err => {
-          // isAuthenticated = true
           console.log(err)
-          // console.log('Bad Token')
         })
     } else {
       isAuthenticated = false

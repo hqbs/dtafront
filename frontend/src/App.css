@@ -390,3 +390,24 @@ select {
     opacity: 0;
   }
 }
+
+@media (max-width: 640px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+}
