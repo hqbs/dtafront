@@ -68,9 +68,12 @@ function App () {
             '")}'
         )
         .then(res => {
-          console.log(res)
-          // isAuthenticated = true
-          // history.push('/')
+          if (res.data.data.validateUserToken) {
+            isAuthenticated = true
+            history.push('/')
+          } else {
+            showSnackbar('Expired Token. Please Login Again!')
+          }
         })
         .catch(err => {
           // isAuthenticated = true
@@ -113,7 +116,7 @@ function App () {
       })
       .catch(err => {
         if (err.message === 'NetwError') {
-          showSnackbar('Server currenork tly down. Could be an outage.')
+          showSnackbar('Server currently down. Could be an outage.')
         }
 
         console.log(err.message)
