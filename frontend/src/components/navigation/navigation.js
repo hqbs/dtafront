@@ -52,20 +52,21 @@ function Navigation ({ isAuthenticated, signout }) {
               Create a Classroom
             </Link>
           </li>
-          <li className='navigation-li' style={{ float: 'right' }}>
+          {/* <li className='navigation-li' style={{ float: 'right' }}>
             <Link className='nav-button' to='/documentation'>
               Documentation
             </Link>
-          </li>
+          </li> */}
           <li className='navigation-li' style={{ float: 'right' }}>
             {isAuthenticated ? (
               <Link className='nav-button' to='/'>
                 Servers
               </Link>
             ) : (
-              <Link className='nav-button' to='/about'>
-                About
-              </Link>
+              ''
+              // <Link className='nav-button' to='/about'>
+              //   About
+              // </Link>
             )}
           </li>
         </div>

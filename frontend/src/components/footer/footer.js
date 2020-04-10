@@ -5,6 +5,29 @@ function Footer () {
   return (
     <div className='footer'>
       <div className='footer-item'>
+        <Link
+          className='logo'
+          style={{ padding: 0, margin: 0, textAlign: 'left' }}
+          to='/'
+        >
+          Academe
+          <span
+            style={{
+              color: '#5b5dee'
+            }}
+          >
+            Space
+          </span>
+        </Link>
+        <ul className='footer-navigation-container'>
+          <li className='footer-navigation-item'>
+            <span style={{ fontSize: '11px', color: '#616061' }}>
+              Copyrigtht &copy; 2020 AcademeSpace, LLC
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div className='footer-item'>
         <h4>About</h4>
         <ul className='footer-navigation-container'>
           <li className='footer-navigation-item'>

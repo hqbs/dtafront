@@ -12,7 +12,7 @@ import Servers from './components/pages/servers/servers'
 import Status from './components/pages/status/status'
 import Create from './components/pages/create/create'
 import Join from './components/pages/join/join'
-import TA from './components/pages/feature-ta/feature-ta'
+import OfficeHours from './components/pages/feature-officehours/feature-officehours'
 
 import { Switch, Route, useHistory } from 'react-router-dom'
 
@@ -130,6 +130,51 @@ function App () {
     showSnackbar('Successfully signed out!')
   }
 
+  function create (fname, lname, phone, email, password) {
+    axios
+      .get(
+        'http://' +
+          IP +
+          '/graphql?query=mutation+_{createUser(fname:"' +
+          fname +
+          '",lname:"' +
+          lname +
+          '",email:"' +
+          email +
+          '",phonenumber:"' +
+          phone +
+          '",type:"Student",password:"' +
+          password +
+          '", discordid: " "){success errors token}}'
+      )
+      .then(res => {
+        const data = res.data.data.login
+        const errors = data.errors
+        const success = data.success
+        const token = data.token
+
+        if (success) {
+          setCookie('token', token, 1)
+          setCookie('email', email, 1)
+          isAuthenticated = true
+          history.push('/')
+          showSnackbar('Account Created!')
+        } else {
+          showSnackbar(errors)
+        }
+
+        console.log(res)
+        // showSnackbar('Login Successfull!')
+      })
+      .catch(err => {
+        if (err.message === 'Network Error') {
+          showSnackbar('Server currently down. Could be an outage.')
+        }
+
+        console.log(err)
+      })
+  }
+
   function showSnackbar (message) {
     // Get the snackbar DIV
     var x = document.getElementById('snackbar')
@@ -156,13 +201,17 @@ function App () {
       <Switch>
         <PrivateRoute path='/create' component={Create} />
         <PrivateRoute path='/join' component={Join} />
-        <PrivateRoute path='/ta' component={TA} />
+        <PrivateRoute path='/officehours' component={OfficeHours} />
 
         <Route path='/login'>
           {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
         </Route>
         <Route path='/signup'>
-          {isAuthenticated ? () => history.push('/') : <Signup />}
+          {isAuthenticated ? (
+            () => history.push('/')
+          ) : (
+            <Signup create={create} />
+          )}
         </Route>
         <Route path='/forgot'>
           {isAuthenticated ? () => history.push('/') : <Forgot />}

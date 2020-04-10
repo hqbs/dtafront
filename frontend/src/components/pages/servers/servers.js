@@ -15,9 +15,10 @@ function Servers () {
           <button
             style={{
               fontSize: '12px',
-              marginTop: '0px',
+              marginTop: '10px',
               padding: '3px 10px',
-              top: '0'
+              top: '0',
+              verticalAlign: 'middle'
             }}
           >
             Create
@@ -47,9 +48,10 @@ function Servers () {
           <button
             style={{
               fontSize: '12px',
-              marginTop: '0px',
+              marginTop: '10px',
               padding: '3px 10px',
-              top: '0'
+              top: '0',
+              verticalAlign: 'middle'
             }}
           >
             Join

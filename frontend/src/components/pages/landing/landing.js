@@ -23,9 +23,10 @@ function landing () {
         <div className='create-container'>
           <h2>Create a Classroom</h2>
           <p>
-            If you are a teacher, than creating a classroom is probably for you!
-            We will help you quickly setup your classroom in your prefered
-            enviornment.
+            Creating a classroom is typically for teachers or professors, but
+            can be utlized in other functions as well. As a classroom owner, you
+            will get access to a vast amount of tools to help with distance
+            learning. We will even set up your Discord Server for you!
           </p>
           <center>
             <Link to='/create'>
@@ -38,9 +39,10 @@ function landing () {
         <div className='create-container'>
           <h2>Join a Classroom</h2>
           <p>
-            If you are a student or teaching assistant, than this is the spot
-            for you! This will allow you to enter a classroom code in order to
-            enter a teachers setup enviornment. It's quick and easy!
+            Joining a classroom is typically for students. As a student, we will
+            get the chance to use some of our built in integrations in order to
+            make learning easier. Things like office hours will all be automated
+            within Discord.
           </p>
           <center>
             <Link to='/join'>

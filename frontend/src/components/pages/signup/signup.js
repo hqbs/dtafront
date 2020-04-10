@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import './signup.css'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function Login () {
+function Login ({ create }) {
   const [fnameError, setfnameError] = useState(false)
   const [lnameError, setlnameError] = useState(false)
   const [emailError, setemailError] = useState(false)
   const [phonenumberError, setphonenumberError] = useState(false)
   const [passwordError, setpasswordError] = useState(false)
   const [cpasswordError, setcpasswordError] = useState(false)
-
-  const history = useHistory()
 
   window.scrollTo({
     top: 0,
@@ -88,7 +86,7 @@ function Login () {
 
   function createAccount (fname, lname, email, phonenumber, password) {
     // Implement Axios call for Account Creation
-    history.push('/login')
+    create(fname, lname, phonenumber, email, password)
   }
 
   return (
