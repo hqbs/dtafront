@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Toolbelt () {
   window.scrollTo({
@@ -13,16 +14,24 @@ function Toolbelt () {
 
     for (i = 0; i < coll.length; i++) {
       coll[i].children[0].nextElementSibling.style.display = 'inherit'
-      //   coll[i].children[0].addEventListener('click', function () {
-      //     var content = this.nextElementSibling
-      //     if (content.style.display === 'inherit') {
-      //       content.style.display = 'none'
-      //     } else {
-      //       content.style.display = 'inherit'
-      //     }
-      //   })
     }
   }, [])
+
+  function open () {
+    axios
+      .get('http://localhost:8000/officehours/open/691808020329660458')
+      .then(res => {
+        console.log(res)
+      })
+  }
+
+  function close () {
+    axios
+      .get('http://localhost:8000/officehours/close/691808020329660458')
+      .then(res => {
+        console.log(res)
+      })
+  }
 
   return (
     <div>
@@ -74,25 +83,25 @@ function Toolbelt () {
           <div className='tool-content'>
             <center>
               <p>Office is: Closed</p>
-              <Link to='/'>
-                <button
-                  style={{
-                    width: '45%',
-                    height: '40px',
-                    marginTop: '10px',
-                    marginRight: '30px'
-                  }}
-                >
-                  Open Office
-                </button>
-              </Link>
-              <Link to='/'>
-                <button
-                  style={{ width: '45%', height: '40px', marginTop: '10px' }}
-                >
-                  Close Office
-                </button>
-              </Link>
+
+              <button
+                style={{
+                  width: '45%',
+                  height: '40px',
+                  marginTop: '10px',
+                  marginRight: '30px'
+                }}
+                onClick={open}
+              >
+                Open Office
+              </button>
+
+              <button
+                style={{ width: '45%', height: '40px', marginTop: '10px' }}
+                onClick={close}
+              >
+                Close Office
+              </button>
             </center>
           </div>
         </div>

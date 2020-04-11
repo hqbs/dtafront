@@ -43,32 +43,39 @@ function Navigation ({ isAuthenticated, signout }) {
 
         <div className='mobile-nav'>
           <li className='navigation-li' style={{ float: 'right' }}>
-            <Link className='nav-button' to='/join'>
-              Join a Classroom
+            <Link className='nav-button' to='/documentation'>
+              Documentation
             </Link>
           </li>
-          <li className='navigation-li' style={{ float: 'right' }}>
-            <Link className='nav-button' to='/create'>
-              Create a Classroom
-            </Link>
-          </li>
+
           {/* <li className='navigation-li' style={{ float: 'right' }}>
             <Link className='nav-button' to='/documentation'>
               Documentation
             </Link>
           </li> */}
-          <li className='navigation-li' style={{ float: 'right' }}>
-            {isAuthenticated ? (
-              <Link className='nav-button' to='/'>
-                Servers
-              </Link>
-            ) : (
-              ''
-              // <Link className='nav-button' to='/about'>
-              //   About
-              // </Link>
-            )}
-          </li>
+
+          {isAuthenticated ? (
+            <div>
+              <li className='navigation-li' style={{ float: 'right' }}>
+                <Link className='nav-button' to='/create'>
+                  Create Classroom
+                </Link>
+              </li>
+              <li className='navigation-li' style={{ float: 'right' }}>
+                <Link className='nav-button' to='/'>
+                  My Servers
+                </Link>
+              </li>
+            </div>
+          ) : (
+            <div>
+              <li className='navigation-li' style={{ float: 'right' }}>
+                <Link className='nav-button' to='/about'>
+                  About
+                </Link>
+              </li>
+            </div>
+          )}
         </div>
       </ul>
     </div>

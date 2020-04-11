@@ -11,6 +11,10 @@ function landing () {
 
   return (
     <div>
+      <div className='create-container-about' style={{ height: 0 }}>
+        <h2></h2>
+        <p></p>
+      </div>
       <div className='container'>
         <div className='create-container-image'>
           <img

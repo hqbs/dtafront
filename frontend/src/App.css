@@ -132,10 +132,27 @@ button:hover {
 }
 
 .container {
+  /* margin-top: 50px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-about {
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.create-container-about {
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 500px;
+  padding: 30px;
+  margin: 0 20px;
+  border-radius: 6px;
 }
 
 .create-container {

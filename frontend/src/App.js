@@ -14,6 +14,7 @@ import Create from './components/pages/create/create'
 import Join from './components/pages/join/join'
 import OfficeHours from './components/pages/feature-officehours/feature-officehours'
 import Tools from './components/pages/toolbelt/toolbelt'
+import About from './components/pages/about/about'
 
 import { Switch, Route, useHistory } from 'react-router-dom'
 
@@ -203,8 +204,21 @@ function App () {
     <div>
       <Navigation isAuthenticated={isAuth} signout={signout} />
       <Switch>
-        <PrivateRoute path='/create' component={Create} />
-        <PrivateRoute path='/join' component={Join} />
+        {isAuthenticated ? (
+          <PrivateRoute path='/create' component={Create} />
+        ) : (
+          <Route path='/create'>
+            {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
+          </Route>
+        )}
+        {isAuthenticated ? (
+          <PrivateRoute path='/join' component={Join} />
+        ) : (
+          <Route path='/join'>
+            {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
+          </Route>
+        )}
+
         <PrivateRoute path='/officehours' component={OfficeHours} />
         <PrivateRoute path='/tools' component={Tools} />
 
@@ -222,6 +236,9 @@ function App () {
           {isAuthenticated ? () => history.push('/') : <Forgot />}
         </Route>
 
+        <Route path='/about'>
+          <About />
+        </Route>
         <Route path='/status'>
           <Status />
         </Route>
