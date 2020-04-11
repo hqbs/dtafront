@@ -26,22 +26,29 @@ function Servers () {
         </Link>
       </h1>
       <div className='server-container'>
-        <div className='server'>
-          <h3>Computer Systems</h3>
-          <h5 style={{ margin: '0', padding: '0' }}>CS 252</h5>
-          <p style={{ fontSize: '11px' }}>Section: 001</p>
-        </div>
-        <div className='server'>
-          <h3>Computer Systems</h3>
-          <h5 style={{ margin: '0', padding: '0' }}>CS 252</h5>
-          <p style={{ fontSize: '11px' }}>Section: 002</p>
-        </div>
-        <div className='server'>
-          <h3>Database Systems</h3>
-          <h5 style={{ margin: '0', padding: '0' }}>CS 260</h5>
-          <p style={{ fontSize: '11px' }}>Section: 001</p>
-        </div>
+        <Link to='/tools' style={{ textDecoration: 'none', color: 'black' }}>
+          <div className='server'>
+            <h3>Computer Systems</h3>
+            <h5 style={{ margin: '0', padding: '0' }}>CS 252</h5>
+            <p style={{ fontSize: '11px' }}>Section: 001</p>
+          </div>
+        </Link>
+        <Link to='/tools' style={{ textDecoration: 'none', color: 'black' }}>
+          <div className='server'>
+            <h3>Computer Systems</h3>
+            <h5 style={{ margin: '0', padding: '0' }}>CS 252</h5>
+            <p style={{ fontSize: '11px' }}>Section: 002</p>
+          </div>
+        </Link>
+        <Link to='/tools' style={{ textDecoration: 'none', color: 'black' }}>
+          <div className='server'>
+            <h3>Database Systems</h3>
+            <h5 style={{ margin: '0', padding: '0' }}>CS 260</h5>
+            <p style={{ fontSize: '11px' }}>Section: 001</p>
+          </div>
+        </Link>
       </div>
+
       <h1 style={{ margin: '50px auto 10px auto', textAlign: 'center' }}>
         Joined Classrooms{' '}
         <Link to='/join'>
@@ -60,16 +67,20 @@ function Servers () {
       </h1>
 
       <div className='server-container'>
-        <div className='server'>
-          <h3>Introduction to Biology</h3>
-          <h5 style={{ margin: '0', padding: '0' }}>BIO 100</h5>
-          <p style={{ fontSize: '11px' }}>Section: 001</p>
-        </div>
-        <div className='server'>
-          <h3>Introduction to Geology</h3>
-          <h5 style={{ margin: '0', padding: '0' }}>GEO 101</h5>
-          <p style={{ fontSize: '11px' }}>Section: 001</p>
-        </div>
+        <Link to='/tools' style={{ textDecoration: 'none', color: 'black' }}>
+          <div className='server'>
+            <h3>Introduction to Biology</h3>
+            <h5 style={{ margin: '0', padding: '0' }}>BIO 100</h5>
+            <p style={{ fontSize: '11px' }}>Section: 001</p>
+          </div>
+        </Link>
+        <Link to='/tools' style={{ textDecoration: 'none', color: 'black' }}>
+          <div className='server'>
+            <h3>Introduction to Geology</h3>
+            <h5 style={{ margin: '0', padding: '0' }}>GEO 101</h5>
+            <p style={{ fontSize: '11px' }}>Section: 001</p>
+          </div>
+        </Link>
       </div>
     </div>
   )

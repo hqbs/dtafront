@@ -13,6 +13,7 @@ import Status from './components/pages/status/status'
 import Create from './components/pages/create/create'
 import Join from './components/pages/join/join'
 import OfficeHours from './components/pages/feature-officehours/feature-officehours'
+import Tools from './components/pages/toolbelt/toolbelt'
 
 import { Switch, Route, useHistory } from 'react-router-dom'
 
@@ -51,6 +52,7 @@ function setCookie (cname, cvalue, exdays) {
 
 function App () {
   const [snackMessage, setSnackMessage] = useState('')
+  const [isAuth, setIsAuth] = useState(false)
   const history = useHistory()
 
   useEffect(() => {
@@ -70,7 +72,7 @@ function App () {
         .then(res => {
           if (res.data.data.validateUserToken) {
             isAuthenticated = true
-            history.push('/')
+            setIsAuth(true)
           } else {
             showSnackbar('Expired Token. Please Login Again!')
           }
@@ -80,6 +82,7 @@ function App () {
         })
     } else {
       isAuthenticated = false
+      setIsAuth(false)
     }
   }, [history])
 
@@ -104,6 +107,7 @@ function App () {
           setCookie('token', token, 1)
           setCookie('email', email, 1)
           isAuthenticated = true
+          setIsAuth(true)
           history.push('/')
           showSnackbar('Successful Login!')
         } else {
@@ -126,6 +130,7 @@ function App () {
     deleteCookie('token')
     deleteCookie('email')
     isAuthenticated = false
+    setIsAuth(false)
     history.push('/')
     showSnackbar('Successfully signed out!')
   }
@@ -157,6 +162,7 @@ function App () {
           setCookie('token', token, 1)
           setCookie('email', email, 1)
           isAuthenticated = true
+          setIsAuth(true)
           history.push('/')
           showSnackbar('Account Created!')
         } else {
@@ -190,18 +196,17 @@ function App () {
   }
 
   const PrivateRoute = ({ component: Component }) => (
-    <Route>
-      {isAuthenticated === true ? <Component /> : () => history.push('/login')}
-    </Route>
+    <Route>{isAuth === true ? <Component /> : () => ''}</Route>
   )
 
   return (
     <div>
-      <Navigation isAuthenticated={isAuthenticated} signout={signout} />
+      <Navigation isAuthenticated={isAuth} signout={signout} />
       <Switch>
         <PrivateRoute path='/create' component={Create} />
         <PrivateRoute path='/join' component={Join} />
         <PrivateRoute path='/officehours' component={OfficeHours} />
+        <PrivateRoute path='/tools' component={Tools} />
 
         <Route path='/login'>
           {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
