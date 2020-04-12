@@ -24,6 +24,7 @@ function Create ({ showSnackbar }) {
 
   useEffect(() => {
     if (!ran) {
+      console.log('Test')
       ran = true
       axios
         .get(
@@ -68,13 +69,13 @@ function Create ({ showSnackbar }) {
       )
       .then(res => {
         console.log(res)
-        // if (res.data.data.createclassroomfront.success) {
-        //   showSnackbar('Server Creation Complete!')
-        // } else {
-        //   showSnackbar(
-        //     'Server Creation Failed. Please refresh and everything again!'
-        //   )
-        // }
+        if (!res.data.data.createclassroomfront.success) {
+          showSnackbar('Server Creation Complete!')
+        } else {
+          showSnackbar(
+            'Server Creation Failed. Please refresh and everything again!'
+          )
+        }
       })
   }
 

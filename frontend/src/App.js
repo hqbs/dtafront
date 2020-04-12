@@ -156,7 +156,7 @@ function App () {
       )
       .then(res => {
         console.log(res)
-        const data = res.data.data.login
+        const data = res.data.data.createUser
 
         // const errors = data.errors
         const success = data.success
