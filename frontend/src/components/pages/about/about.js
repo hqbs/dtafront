@@ -20,7 +20,7 @@ function landing () {
         <p></p>
       </div>
       <center>
-        <h1 style={{ fontSize: '48px' }}>Our Journey</h1>
+        <h1 style={{ fontSize: '48px' }}>About</h1>
       </center>
       <div className='container-about' style={{ top: '200px' }}>
         <div className='create-container-image'>

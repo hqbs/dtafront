@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+const IP = 'academe.space:8000'
+
 function Toolbelt () {
   window.scrollTo({
     top: 0,
@@ -18,19 +20,30 @@ function Toolbelt () {
   }, [])
 
   function open () {
-    axios
-      .get('http://localhost:8000/officehours/open/691808020329660458')
-      .then(res => {
-        console.log(res)
-      })
+    let tokens = window.location.href.split('/')
+    let id = tokens[4]
+
+    axios.get('http://' + IP + '/officehours/open/' + id).then(res => {
+      console.log(res)
+    })
   }
 
   function close () {
-    axios
-      .get('http://localhost:8000/officehours/close/691808020329660458')
-      .then(res => {
-        console.log(res)
-      })
+    let tokens = window.location.href.split('/')
+    let id = tokens[4]
+
+    axios.get('http://' + IP + '/officehours/close/' + id).then(res => {
+      console.log(res)
+    })
+  }
+
+  function next () {
+    let tokens = window.location.href.split('/')
+    let id = tokens[4]
+
+    axios.get('http://' + IP + '/next/' + id).then(res => {
+      console.log(res)
+    })
   }
 
   return (
@@ -101,6 +114,13 @@ function Toolbelt () {
                 onClick={close}
               >
                 Close Office
+              </button>
+
+              <button
+                style={{ width: '100%', height: '40px', marginTop: '10px' }}
+                onClick={next}
+              >
+                Next Student (Pulls from waiting-room)
               </button>
             </center>
           </div>

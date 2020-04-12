@@ -9,12 +9,14 @@ function Login () {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
+      <div className='create-container-about' style={{ height: 0 }}>
+        <h2> </h2>
+        <p></p>
+      </div>
+      <center>
+        <h1 style={{ fontSize: '48px' }}>Forgot Password</h1>
+      </center>
       <div className='login-container'>
-        <h2>Forgot Password</h2>
-        <p>
-          If you forgot your password, enter your email and we will send an
-          email to reset it!
-        </p>
         <label for='fname'>Email</label>
         <input type='text' id='femail' name='email' placeholder='Email' />
 

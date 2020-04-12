@@ -32,8 +32,14 @@ function Login ({ auth }) {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
+      <div className='create-container-about' style={{ height: 0 }}>
+        <h2> </h2>
+        <p></p>
+      </div>
+      <center>
+        <h1 style={{ fontSize: '48px' }}>Login</h1>
+      </center>
       <div className='login-container'>
-        <h2>Login</h2>
         <label htmlFor='email'>Email</label>
         <input type='text' id='email' name='email' placeholder='Email' />
         {emailError ? (

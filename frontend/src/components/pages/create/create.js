@@ -1,11 +1,43 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+const IP = '35.192.87.46:4000'
+let ran = false
 
-function create () {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
+function Create ({ showSnackbar }) {
+  const [serverToken, setServerToken] = useState('')
+
+  function getCookie (cname) {
+    var name = cname + '='
+    var decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split(';')
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i]
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1)
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length)
+      }
+    }
+    return ''
+  }
+
+  useEffect(() => {
+    if (!ran) {
+      ran = true
+      axios
+        .get(
+          'http://' +
+            IP +
+            '/graphql?query=mutation+_{gendiscordtoken(email:"' +
+            getCookie('email') +
+            '"){success errors token}}'
+        )
+        .then(res => {
+          setServerToken(res.data.data.gendiscordtoken.token)
+        })
+    }
+  }, [serverToken])
 
   function copy () {
     /* Get the text field */
@@ -17,6 +49,33 @@ function create () {
 
     /* Copy the text inside the text field */
     document.execCommand('copy')
+  }
+
+  function submit () {
+    axios
+      .get(
+        'http://' +
+          IP +
+          '/graphql?query=mutation+_{createclassroomfront(token:"' +
+          serverToken +
+          '", classname: "' +
+          document.getElementById('classname').value +
+          '", classnumber: "' +
+          document.getElementById('classcode').value +
+          '", sectionnumber: "' +
+          document.getElementById('section').value +
+          '"){success errors token}}'
+      )
+      .then(res => {
+        console.log(res)
+        // if (res.data.data.createclassroomfront.success) {
+        //   showSnackbar('Server Creation Complete!')
+        // } else {
+        //   showSnackbar(
+        //     'Server Creation Failed. Please refresh and everything again!'
+        //   )
+        // }
+      })
   }
 
   return (
@@ -90,7 +149,7 @@ function create () {
             type='text'
             id='setupcode'
             name='classname'
-            value='!setup alkjdflkajslkdfjlkasjdlfjasl;djflaksdjflkajsdlkfjalksdjflkasjdklfjaslkdfjlasdjf'
+            value={'!setup ' + serverToken}
             style={{ color: 'gray' }}
           />
           <button
@@ -117,18 +176,17 @@ function create () {
           correctly! Hit 'Create Classroom'
         </h5>
         <center>
-          <Link to='/'>
-            <button
-              className='button-alt'
-              style={{ width: '100%', height: '60px', marginTop: '10px' }}
-            >
-              Create Classroom
-            </button>
-          </Link>
+          <button
+            className='button-alt'
+            style={{ width: '100%', height: '60px', marginTop: '10px' }}
+            onClick={submit}
+          >
+            Create Classroom
+          </button>
         </center>
       </div>
     </div>
   )
 }
 
-export default create
+export default Create

@@ -48,8 +48,8 @@ function landing () {
             }}
           >
             With our Discord Bot and Web Portal, classroom functions are all
-            built in. From automated queues for office hours to auto-groups. We
-            have it all.
+            built in. From automating office hour lines to forming groups. We
+            will walk you through the process all the way.
           </h4>
           <Link to='/about'>
             <button className='button-alt' style={{ padding: '25px 40px' }}>

@@ -81,11 +81,11 @@ function Footer () {
                 Create a Classroom
               </Link>
             </li>
-            <li className='footer-navigation-item'>
+            {/* <li className='footer-navigation-item'>
               <Link className='footer-link' to='/join'>
                 Join a Classroom
               </Link>
-            </li>
+            </li> */}
             <li className='footer-navigation-item'>
               <Link className='footer-link' to='/status'>
                 Status

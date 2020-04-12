@@ -91,8 +91,14 @@ function Login ({ create }) {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
+      <div className='create-container-about' style={{ height: 0 }}>
+        <h2> </h2>
+        <p></p>
+      </div>
+      <center>
+        <h1 style={{ fontSize: '48px' }}>Signup</h1>
+      </center>
       <div className='login-container'>
-        <h2>Signup</h2>
         <label htmlFor='fname'>First Name</label>
         <input type='text' id='fname' name='fname' placeholder='First Name' />
         {fnameError ? (
@@ -192,7 +198,10 @@ function Login ({ create }) {
           </button>
           <p>
             Already have an account?{' '}
-            <Link className='hyperlinks' to='/login'>
+            <Link
+              to='/login'
+              style={{ textDecoration: 'underline', color: '#5b5dee' }}
+            >
               Click here
             </Link>{' '}
             to login!

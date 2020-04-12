@@ -45,15 +45,15 @@ function Navigation ({ isAuthenticated, signout }) {
 
         <div className='mobile-nav'>
           <li className='navigation-li' style={{ float: 'right' }}>
-            <Link className='nav-button' to='/documentation'>
+            <Link className='nav-button' to='/contact'>
               Contact Us
             </Link>
           </li>
-          <li className='navigation-li' style={{ float: 'right' }}>
+          {/* <li className='navigation-li' style={{ float: 'right' }}>
             <Link className='nav-button' to='/documentation'>
               Documentation
             </Link>
-          </li>
+          </li> */}
 
           {/* <li className='navigation-li' style={{ float: 'right' }}>
             <Link className='nav-button' to='/documentation'>

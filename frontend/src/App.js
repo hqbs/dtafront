@@ -11,6 +11,7 @@ import Forgot from './components/pages/forgot/forgot'
 import Servers from './components/pages/servers/servers'
 import Status from './components/pages/status/status'
 import Create from './components/pages/create/create'
+import Contact from './components/pages/contact/contact'
 // import Join from './components/pages/join/join'
 import OfficeHours from './components/pages/feature-officehours/feature-officehours'
 import Tools from './components/pages/toolbelt/toolbelt'
@@ -18,7 +19,7 @@ import About from './components/pages/about/about'
 
 import { Switch, Route, useHistory } from 'react-router-dom'
 
-const IP = '35.226.72.159:4000'
+const IP = '35.192.87.46:4000'
 
 let isAuthenticated
 // axios.defaults.withCredentials = true
@@ -151,11 +152,13 @@ function App () {
           phone +
           '",type:"Student",password:"' +
           password +
-          '", discordid: " "){success errors token}}'
+          '"){success errors token}}'
       )
       .then(res => {
+        console.log(res)
         const data = res.data.data.login
-        const errors = data.errors
+
+        // const errors = data.errors
         const success = data.success
         const token = data.token
 
@@ -167,13 +170,13 @@ function App () {
           history.push('/')
           showSnackbar('Account Created!')
         } else {
-          showSnackbar(errors)
+          console.log(res)
         }
 
-        console.log(res)
         // showSnackbar('Login Successfull!')
       })
       .catch(err => {
+        console.log(err)
         if (err.message === 'Network Error') {
           showSnackbar('Server currently down. Could be an outage.')
         }
@@ -206,7 +209,9 @@ function App () {
       <div className='content-wrap'>
         <Switch>
           {isAuthenticated ? (
-            <PrivateRoute path='/create' component={Create} />
+            <Route path='/create'>
+              <Create showSnackbar={showSnackbar} />
+            </Route>
           ) : (
             <Route path='/create'>
               {isAuthenticated ? (
@@ -247,6 +252,9 @@ function App () {
 
           <Route path='/about'>
             <About />
+          </Route>
+          <Route path='/contact'>
+            <Contact showSnackbar={showSnackbar} />
           </Route>
           <Route path='/status'>
             <Status />

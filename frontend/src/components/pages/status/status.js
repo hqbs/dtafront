@@ -7,12 +7,14 @@ function Status () {
     behavior: 'smooth'
   })
 
+  const IP = 'academe.space:8000'
+
   const [discordStatus, setDiscordStatus] = useState(null)
   const [authStatus, setAuthStatus] = useState(null)
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/status`)
+      .get('http://' + IP + '/status')
       .then(res => {
         console.log(res)
         let discordStatus = res.data.status
@@ -48,6 +50,9 @@ function Status () {
 
   return (
     <div style={{ marginTop: '100px', marginBottom: '500px' }}>
+      <center>
+        <h1 style={{ fontSize: '48px' }}>Status Updates</h1>
+      </center>
       <div className='server-container'>
         <div className='server'>
           <h3>Frontend</h3>
@@ -77,7 +82,7 @@ function Status () {
       </div>
 
       <center>
-        <h3>
+        <h3 style={{ marginTop: '100px' }}>
           Having issues still? Feel free to get in contact with us at{' '}
           <a href='emailto:support@academe.space'>support@academe.space</a>
         </h3>
