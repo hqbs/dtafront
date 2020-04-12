@@ -183,7 +183,11 @@ function Login ({ create }) {
         )}
 
         <center>
-          <button style={{ width: '100%' }} onClick={validate}>
+          <button
+            style={{ width: '100%' }}
+            className='button-alt'
+            onClick={validate}
+          >
             Create Account
           </button>
           <p>
@@ -195,7 +199,7 @@ function Login ({ create }) {
           </p>
         </center>
       </div>
-      <div className='waveWrapper waveAnimation'>
+      {/* <div className='waveWrapper waveAnimation'>
         <div className='waveWrapperInner bgTop'>
           <div
             className='wave waveTop'
@@ -224,7 +228,7 @@ function Login ({ create }) {
           ></div>
         </div>
       </div>
-      <div className='bg' style={{ height: '1200px' }} />
+      <div className='bg' style={{ height: '1200px' }} /> */}
     </div>
   )
 }

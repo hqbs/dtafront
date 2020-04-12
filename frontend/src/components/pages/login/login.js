@@ -66,6 +66,7 @@ function Login ({ auth }) {
           <button
             onClick={validate}
             style={{ width: '48%', marginRight: '4%' }}
+            className='button-alt'
           >
             Login
           </button>
@@ -74,14 +75,17 @@ function Login ({ auth }) {
           </Link>
           <p>
             Forgot your password?{' '}
-            <Link className='hyperlinks' to='/forgot'>
+            <Link
+              to='/forgot'
+              style={{ textDecoration: 'underline', color: '#5b5dee' }}
+            >
               Click here
             </Link>{' '}
             to reset it!
           </p>
         </center>
       </div>
-      <div className='waveWrapper waveAnimation'>
+      {/* <div className='waveWrapper waveAnimation'>
         <div className='waveWrapperInner bgTop'>
           <div
             className='wave waveTop'
@@ -109,8 +113,8 @@ function Login ({ auth }) {
             }}
           ></div>
         </div>
-      </div>
-      <div className='bg' />
+      </div> */}
+      {/* <div className='bg' /> */}
     </div>
   )
 }

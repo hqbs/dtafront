@@ -7,8 +7,6 @@ import Image5 from '../../../images/about5.svg'
 import Image6 from '../../../images/about6.svg'
 import Image7 from '../../../images/about7.svg'
 
-import { Link } from 'react-router-dom'
-
 function landing () {
   window.scrollTo({
     top: 0,
@@ -18,9 +16,12 @@ function landing () {
   return (
     <div>
       <div className='create-container-about' style={{ height: 0 }}>
-        <h2></h2>
+        <h2> </h2>
         <p></p>
       </div>
+      <center>
+        <h1 style={{ fontSize: '48px' }}>Our Journey</h1>
+      </center>
       <div className='container-about' style={{ top: '200px' }}>
         <div className='create-container-image'>
           <center>

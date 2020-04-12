@@ -29,19 +29,26 @@ function Navigation ({ isAuthenticated, signout }) {
               className='navigation-li'
               style={{ float: 'right', marginRight: '10px' }}
             >
-              <Link className='navigation-li' to='/signup'>
-                <button style={{ margin: '12px 4px' }}>Signup</button>
+              <Link className='navigation-li' to='/login'>
+                <button style={{ margin: '12px 4px' }} className='button-alt'>
+                  Login
+                </button>
               </Link>
             </li>
             <li className='navigation-li' style={{ float: 'right' }}>
-              <Link to='/login'>
-                <button style={{ margin: '12px 4px' }}>Login</button>
+              <Link className='nav-button' to='/signup'>
+                Create Account
               </Link>
             </li>
           </div>
         )}
 
         <div className='mobile-nav'>
+          <li className='navigation-li' style={{ float: 'right' }}>
+            <Link className='nav-button' to='/documentation'>
+              Contact Us
+            </Link>
+          </li>
           <li className='navigation-li' style={{ float: 'right' }}>
             <Link className='nav-button' to='/documentation'>
               Documentation

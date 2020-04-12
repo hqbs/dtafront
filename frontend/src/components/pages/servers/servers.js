@@ -49,7 +49,7 @@ function Servers () {
         </Link>
       </div>
 
-      <h1 style={{ margin: '50px auto 10px auto', textAlign: 'center' }}>
+      {/* <h1 style={{ margin: '50px auto 10px auto', textAlign: 'center' }}>
         Joined Classrooms{' '}
         <Link to='/join'>
           <button
@@ -64,9 +64,9 @@ function Servers () {
             Join
           </button>
         </Link>
-      </h1>
+      </h1> */}
 
-      <div className='server-container'>
+      {/* <div className='server-container'>
         <Link to='/tools' style={{ textDecoration: 'none', color: 'black' }}>
           <div className='server'>
             <h3>Introduction to Biology</h3>
@@ -81,7 +81,7 @@ function Servers () {
             <p style={{ fontSize: '11px' }}>Section: 001</p>
           </div>
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }

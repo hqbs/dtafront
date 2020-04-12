@@ -11,7 +11,7 @@ import Forgot from './components/pages/forgot/forgot'
 import Servers from './components/pages/servers/servers'
 import Status from './components/pages/status/status'
 import Create from './components/pages/create/create'
-import Join from './components/pages/join/join'
+// import Join from './components/pages/join/join'
 import OfficeHours from './components/pages/feature-officehours/feature-officehours'
 import Tools from './components/pages/toolbelt/toolbelt'
 import About from './components/pages/about/about'
@@ -201,51 +201,61 @@ function App () {
   )
 
   return (
-    <div>
+    <div className='page-container'>
       <Navigation isAuthenticated={isAuth} signout={signout} />
-      <Switch>
-        {isAuthenticated ? (
-          <PrivateRoute path='/create' component={Create} />
-        ) : (
-          <Route path='/create'>
-            {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
-          </Route>
-        )}
-        {isAuthenticated ? (
-          <PrivateRoute path='/join' component={Join} />
-        ) : (
-          <Route path='/join'>
-            {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
-          </Route>
-        )}
-
-        <PrivateRoute path='/officehours' component={OfficeHours} />
-        <PrivateRoute path='/tools' component={Tools} />
-
-        <Route path='/login'>
-          {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
-        </Route>
-        <Route path='/signup'>
+      <div className='content-wrap'>
+        <Switch>
           {isAuthenticated ? (
-            () => history.push('/')
+            <PrivateRoute path='/create' component={Create} />
           ) : (
-            <Signup create={create} />
+            <Route path='/create'>
+              {isAuthenticated ? (
+                () => history.push('/')
+              ) : (
+                <Login auth={auth} />
+              )}
+            </Route>
           )}
-        </Route>
-        <Route path='/forgot'>
-          {isAuthenticated ? () => history.push('/') : <Forgot />}
-        </Route>
+          {/* {isAuthenticated ? (
+            <PrivateRoute path='/join' component={Join} />
+          ) : (
+            <Route path='/join'>
+              {isAuthenticated ? (
+                () => history.push('/')
+              ) : (
+                <Login auth={auth} />
+              )}
+            </Route>
+          )} */}
 
-        <Route path='/about'>
-          <About />
-        </Route>
-        <Route path='/status'>
-          <Status />
-        </Route>
-        <Route path='/'>{isAuthenticated ? <Servers /> : <Landing />}</Route>
-      </Switch>
-      <div id='snackbar'>{snackMessage}</div>
-      <Footer />
+          <PrivateRoute path='/officehours' component={OfficeHours} />
+          <PrivateRoute path='/tools' component={Tools} />
+
+          <Route path='/login'>
+            {isAuthenticated ? () => history.push('/') : <Login auth={auth} />}
+          </Route>
+          <Route path='/signup'>
+            {isAuthenticated ? (
+              () => history.push('/')
+            ) : (
+              <Signup create={create} />
+            )}
+          </Route>
+          <Route path='/forgot'>
+            {isAuthenticated ? () => history.push('/') : <Forgot />}
+          </Route>
+
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/status'>
+            <Status />
+          </Route>
+          <Route path='/'>{isAuthenticated ? <Servers /> : <Landing />}</Route>
+        </Switch>
+        <div id='snackbar'>{snackMessage}</div>
+        <Footer />
+      </div>
     </div>
   )
 }

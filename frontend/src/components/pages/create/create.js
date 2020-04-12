@@ -24,7 +24,7 @@ function create () {
       <h1 style={{ margin: '100px auto 10px auto', textAlign: 'center' }}>
         Create a Classroom
       </h1>
-      <div className='login-container' style={{ marginTop: 0, width: '600px' }}>
+      <div className='login-container' style={{ marginTop: 0, width: '350px' }}>
         <label htmlFor='classname'>Classroom Name</label>
         <input
           type='text'

@@ -1,6 +1,6 @@
 import React from 'react'
-import Image1 from '../../../images/picture3.svg'
-import Image2 from '../../../images/picture2.svg'
+import Image3 from '../../../images/class.svg'
+
 import { Link } from 'react-router-dom'
 
 function landing () {
@@ -11,55 +11,78 @@ function landing () {
 
   return (
     <div>
-      <div className='create-container-about' style={{ height: 0 }}>
-        <h2></h2>
-        <p></p>
-      </div>
-      <div className='container'>
-        <div className='create-container-image'>
-          <img
-            alt='lady standing up with other peeps in bubbles'
-            src={Image1}
-            width='100%'
-          />
-        </div>
-
-        <div className='create-container'>
-          <h2>Create a Classroom</h2>
-          <p>
-            Creating a classroom is typically for teachers or professors, but
-            can be utlized in other functions as well. As a classroom owner, you
-            will get access to a vast amount of tools to help with distance
-            learning. We will even set up your Discord Server for you!
-          </p>
-          <center>
-            <Link to='/create'>
-              <button style={{ padding: '10px 30px' }}>Create Classroom</button>
+      <div className='container-about'>
+        <div
+          className='create-container-about'
+          style={{
+            backgroundColor: 'rgba(0,0,0,0)',
+            border: '0px solid rgba(0,0,0,0)',
+            boxShadow: '0 0 0 rgba(0,0,0,0)'
+          }}
+        >
+          <h4
+            style={{
+              fontWeight: '500',
+              letterSpacing: '.2px',
+              marginTop: '40px'
+            }}
+          >
+            TEACH FROM HOME
+          </h4>
+          <h1
+            style={{
+              fontWeight: '500',
+              letterSpacing: '.5px',
+              fontSize: '48px',
+              margin: 0
+            }}
+          >
+            Academe<span style={{ color: '#5b5dee' }}>Space</span> makes
+            distance learning easy, from anywhere
+          </h1>
+          <h4
+            style={{
+              fontWeight: '400',
+              marginTop: '10px',
+              fontSize: '18px'
+            }}
+          >
+            With our Discord Bot and Web Portal, classroom functions are all
+            built in. From automated queues for office hours to auto-groups. We
+            have it all.
+          </h4>
+          <Link to='/about'>
+            <button className='button-alt' style={{ padding: '25px 40px' }}>
+              LEARN MORE
+            </button>
+          </Link>
+          <button style={{ marginLeft: '10px', padding: '25px 40px' }}>
+            CONTACT US
+          </button>
+          <h5
+            style={{
+              fontWeight: '600',
+              marginTop: '0',
+              fontSize: '14px'
+            }}
+          >
+            Need to create a classroom?{' '}
+            <Link
+              to='/signup'
+              style={{ textDecoration: 'underline', color: '#5b5dee' }}
+            >
+              Get Started
             </Link>
-          </center>
+          </h5>
         </div>
-      </div>
-      <div className='container'>
-        <div className='create-container'>
-          <h2>Join a Classroom</h2>
-          <p>
-            Joining a classroom is typically for students. As a student, we will
-            get the chance to use some of our built in integrations in order to
-            make learning easier. Things like office hours will all be automated
-            within Discord.
-          </p>
-          <center>
-            <Link to='/join'>
-              <button href='#about' style={{ padding: '10px 30px' }}>
-                Join Classroom
-              </button>
-            </Link>
-          </center>
-        </div>
-
         <div className='create-container-image'>
           <center>
-            <img alt='a man setting by a computer' src={Image2} width='80%' />
+            <img
+              alt='lady standing up with other peeps in bubbles'
+              src={Image3}
+              width='98%'
+              style={{ marginTop: '30px' }}
+            />
           </center>
         </div>
       </div>

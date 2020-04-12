@@ -1,3 +1,12 @@
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 300px; /* Footer height */
+}
+
 .navigation-ul {
   position: fixed;
   top: 0;
@@ -76,15 +85,19 @@ button {
   text-decoration: none;
   font-size: 15px;
   font-weight: 700;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 button:hover {
   border: 2px solid #5b5dee;
-  background-color: #5b5dee;
-  color: white;
+  background-color: #f2f2ff;
+  color: #5b5dee;
   cursor: pointer;
   transition: 0.3s;
+}
+
+button:focus {
+  outline: none;
 }
 
 .button-close {
@@ -119,14 +132,14 @@ button:hover {
   text-decoration: none;
   font-size: 15px;
   font-weight: 700;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: 0.3s;
 }
 
 .button-alt:hover {
-  border: 2px solid #5b5dee;
-  background-color: white;
-  color: #5b5dee;
+  border: 2px solid #3b3dd4;
+  background-color: #3b3dd4;
+  color: white;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -172,8 +185,18 @@ button:hover {
   border-radius: 6px;
 }
 
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  display: block;
+  float: left;
+  width: 100%;
+}
+
 .footer {
-  margin-top: 150px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -181,6 +204,7 @@ button:hover {
   background-color: #fff;
   box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.1);
   font-size: 14px;
+  padding: 20px;
 }
 
 .footer-item {
@@ -222,7 +246,7 @@ h4 {
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 350px;
   padding: 30px;
-  margin: 140px auto 300px auto;
+  margin: 100px auto 0px auto;
   border-radius: 6px;
 }
 
@@ -489,23 +513,42 @@ h3 {
   }
 }
 
-@media (max-width: 640px) {
+/*Large Screen*/
+@media screen and (min-width: 1300px) {
   .mobile-nav {
-    display: none;
+    display: block;
+  }
+  .content-wrap {
+    padding-bottom: 300px; /* Footer height */
   }
 }
 
-@media (max-width: 768px) {
+/*Large Screen*/
+@media screen and (max-width: 1299px) {
   .mobile-nav {
-    display: none;
+    display: block;
+  }
+  .content-wrap {
+    padding-bottom: 500px; /* Footer height */
   }
 }
 
-@media (max-width: 1024px) {
+/*Large Screen*/
+@media screen and (max-width: 800px) {
   .mobile-nav {
     display: none;
   }
+  .content-wrap {
+    padding-bottom: 800px; /* Footer height */
+  }
 }
 
-@media (max-width: 1200px) {
+/*Large Screen*/
+@media screen and (max-width: 540px) {
+  .mobile-nav {
+    display: none;
+  }
+  .content-wrap {
+    padding-bottom: 1200px; /* Footer height */
+  }
 }
